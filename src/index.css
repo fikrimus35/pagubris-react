@@ -1,13 +1,30 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Aeonik-Regular";
+  src: url("./assets/fonts/Aeonik-Regular.otf");
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: "Aeonik-Regular", arial;
+  box-sizing: border-box;
+}
+
+#daftar {
+  box-shadow: 0px 40px 40px rgba(109, 193, 215, 0.8);
+}
+
+.circle {
+  background: linear-gradient(
+    89.79deg,
+    #b8b5ff 5.66%,
+    rgba(141, 226, 231, 0) 96.67%
+  );
+}
+
+.linimasa{
+  background: linear-gradient(180deg, #7868E6 0%, #B8B5FF 100%);
+  box-shadow: 0px 20px 25px rgba(109, 193, 215, 0.8);
 }
