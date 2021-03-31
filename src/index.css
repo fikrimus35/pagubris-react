@@ -24,7 +24,30 @@ body {
   );
 }
 
-.linimasa{
-  background: linear-gradient(180deg, #7868E6 0%, #B8B5FF 100%);
+.linimasa {
+  background: linear-gradient(180deg, #7868e6 0%, #b8b5ff 100%);
   box-shadow: 0px 20px 25px rgba(109, 193, 215, 0.8);
+}
+
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 80%;
+  }
+}
+
+input,
+button {
+  outline: none;
+}
+
+.blur {
+  background-color: rgb(237, 238, 247, 0.2);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+}
+
+.bg-auth{
+  background-size: all;
+  background-attachment: fixed;
+  background-position: center;
 }

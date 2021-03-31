@@ -20,7 +20,10 @@ module.exports = {
         '116': '29rem',
         '120': '30rem',
         '124': '31rem',
-      }
+      },
+      backgroundImage : theme =>({
+        'auth' : "url('/src/assets/pictures/background.svg')"
+      })
     },
   },
   variants: {

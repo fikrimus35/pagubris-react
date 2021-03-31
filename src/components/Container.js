@@ -1,12 +1,21 @@
 import React from "react";
 
-const Container = ({ center, children, padding, direction, additional }) => {
+const Container = ({
+  center,
+  children,
+  padding,
+  direction,
+  additional,
+  id,
+  start
+}) => {
   return (
     <div
-      className={`flex flex-col lg:flex-${direction}  ${
+      className={`flex flex-col flex-wrap lg:flex-${direction}  ${
         center && "justify-center items-center"
-      } relative ${additional}`}
+      } relative ${additional} ${start && 'mt-24'}`}
       style={{ padding }}
+      id={id}
     >
       {children}
     </div>

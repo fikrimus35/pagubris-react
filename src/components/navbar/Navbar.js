@@ -8,7 +8,7 @@ const Navbar = ({ list }) => {
   return (
     <div
       style={{ padding: "1% 7%" }}
-      className="z-10 flex flex-col lg:flex-row bg-white"
+      className="z-10 fixed flex flex-col lg:flex-row bg-white w-full"
     >
       <Link to="/">
         <NavLogo image={logo} imageTitle="logo pagubris" />

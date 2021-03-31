@@ -6,12 +6,13 @@ import Button from "../components/Button";
 import Container from "../components/Container";
 import { TAGS_DUMMY } from "../utils/constants";
 import Tag from "../components/Tag";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
     <div>
       <Container padding="0% 7% 6% 7%" additional="flex-col-reverse">
-        <div className="w-full lg:w-1/2 h-auto flex flex-col justify-center mt-0">
+        <div className="w-full lg:w-1/2 h-auto flex flex-col justify-center mt-0 lg:mt-32">
           <h1 className="text-5xl font-bold">Pagubris Media Berbagi</h1>
           <p className="my-8 text-2xl">
             Ngebantu orang bukan hanya memberikan uang atau barang tapi ngebantu
@@ -23,11 +24,11 @@ const Home = () => {
               text="Daftar"
               color="white"
               id="daftar"
-              link="/daftar"
+              link="/signup"
               style={{
                 background:
                   "linear-gradient(180deg, #7868E6 -30.77%, #B8B5FF 69.23%)",
-                boxShadow: "0px 40px 40px rgba(109, 193, 215, 0.8);",
+                boxShadow: "0px 40px 40px rgba(109, 193, 215, 0.8)",
               }}
             />
           </div>
@@ -35,21 +36,25 @@ const Home = () => {
         <div className="w-full lg:w-1/2 h-auto ">
           <img
             src={handshake}
-            className="w-10/12 mx-auto lg:mr-0"
+            className="w-10/12 mx-auto lg:mr-0 mt-32"
             alt="handshake"
           />
         </div>
       </Container>
       <Container center direction="col">
-        <h2 className="text-4xl text-center font-extrabold mb-4">Fitur</h2>
-        <img src={fitur} alt="fitur" className="w-8/12 h-auto mx-auto my-8" />
-        <p className="text-2xl text-center w-10/12 lg:w-8/12">
+        <h2 className="text-4xl text-center font-extrabold mb-4">Fitur Andalan</h2>
+        <img
+          src={fitur}
+          alt="fitur"
+          className="w-full lg:w-8/12 h-auto mx-auto my-8"
+        />
+        <p className="text-2xl text-justify lg:text-center w-full lg:w-10/12 lg:w-8/12">
           Semakin banyak membantu, orang juga semakin tau kok tentang keahlian
           yang ada pada dirimu, kompleks atau ngga bukan jadi parameternya tapi
           bagaimana kamu bisa berguna untuk orang disekitarmu
         </p>
       </Container>
-      <Container center direction="col" additional='overflow-hidden'>
+      <Container center direction="col" additional="overflow-hidden">
         <h2 className="text-4xl text-center mb-4 font-extrabold">Sorotan</h2>
         <div className="flex flex-col lg:flex-row">
           <div className="flex flex-col md:flex-row w-full lg:w-8/12 shadow-2xl rounded-xl py-6 px-8">
@@ -76,14 +81,15 @@ const Home = () => {
               Tagar
             </div>
             <div className="flex flex-wrap justify-between items-start rounded-xl py-4 px-8 bg-light-gray w-96">
-              {TAGS_DUMMY.map((tag) => {
-                return <Tag text={tag} />;
+              {TAGS_DUMMY.map((tag,id) => {
+                return <Tag key={id} text={tag} />;
               })}
             </div>
           </div>
         </div>
-        <div className="bg-gray w-72 h-72 rounded-full absolute -z-10 -right-12 -bottom-8"></div>
+        <div className="bg-gray w-72 h-72 rounded-full absolute -z-10 -right-12 -bottom-8 hidden md:block"></div>
       </Container>
+      <Footer />
     </div>
   );
 };
