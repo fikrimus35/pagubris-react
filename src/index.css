@@ -36,8 +36,10 @@ body {
 }
 
 input,
-button {
-  outline: none;
+button,
+a,
+textarea {
+  outline: none !important;
 }
 
 .blur {
@@ -46,8 +48,18 @@ button {
   backdrop-filter: blur(20px);
 }
 
-.bg-auth{
+.bg-auth {
   background-size: all;
   background-attachment: fixed;
   background-position: center;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  margin-left: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(155, 153, 153);
+  border-radius: 10px;
 }

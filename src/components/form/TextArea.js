@@ -1,19 +1,11 @@
 import React from "react";
 
-const TextArea = ({
-  text,
-  rounded,
-  bgColor,
-  color,
-  iconLeft,
-  iconRight,
-  type,
-}) => {
+const TextArea = ({ rounded, bgColor, width, height, shadow, placeholder, ...rest }) => {
   return (
-    <input
-      type={type}
-      className={`rounded-${rounded} bg-${bgColor} text-${color}`}
-    />
+    <textarea
+      className={`w-${width} h-${height} bg-${bgColor} rounded-${rounded} shadow-${shadow} px-8 py-4`}
+      placeholder={placeholder}
+    ></textarea>
   );
 };
 

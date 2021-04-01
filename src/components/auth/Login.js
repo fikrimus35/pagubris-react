@@ -15,7 +15,7 @@ const Login = () => {
 
   return (
     <Container center additional="bg-auth h-screen">
-      <div className="w-100 rounded-2xl blur">
+      <div className="w-128 rounded-2xl blur">
         <div className="flex justify-around px-12 py-4 text-xl border-b-4 border-white">
           <Link to="/signup">
             Buat

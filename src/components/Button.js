@@ -10,28 +10,40 @@ const Button = ({
   leftIcon,
   rightIcon,
   type,
+  additional,
+  px,
+  py,
   ...rest
 }) => {
   if (link) {
     return (
       <Link
-        className={`button bg-${bgColor} text-${color} rounded-full px-10 py-2 text-md`}
+        className={`button bg-${bgColor} text-${color} rounded-full px-${px} py-${py} text-md flex flex-row items-center space-x-2  ${additional}`}
         {...rest}
         to={link}
       >
-        {text}
+        {leftIcon && <img src={leftIcon} className="w-5 h-5" />}
+        <span>{text}</span>
+        {rightIcon && <img src={rightIcon} className="w-5 h-5" />}
       </Link>
     );
   }
   return (
     <button
-      className={`button bg-${bgColor} text-${color} rounded-full px-10 py-2 text-md`}
+      className={`button bg-${bgColor} text-${color} rounded-full px-${px} py-${py} text-md flex flex-row items-center space-x-2 my-2 ${additional}`}
       type={type}
       {...rest}
     >
-      {text}
+      {leftIcon && <img src={leftIcon} className="w-5 h-5" />}
+      <span>{text}</span>
+      {rightIcon && <img src={rightIcon} className="w-5 h-5" />}
     </button>
   );
+};
+
+Button.defaultProps = {
+  px: 10,
+  py: 2,
 };
 
 export default Button;

@@ -1,11 +1,17 @@
-import React from 'react'
+import React from "react";
+import Container from "../components/Container";
+import PageWithSidebar from "../components/PageWithSidebar";
+import Sidebar from "../components/Sidebar";
+import FeedPanel from "../components/timeline/FeedPanel";
 
 const Timeline = () => {
-    return (
-        <div>
-            <h1 className='text-2xl text-black'>Timeline</h1>
-        </div>
-    )
-}
+  return (
+    <>
+      <PageWithSidebar>
+        <FeedPanel />
+      </PageWithSidebar>
+    </>
+  );
+};
 
-export default Timeline
+export default Timeline;

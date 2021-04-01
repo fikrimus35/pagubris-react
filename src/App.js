@@ -7,13 +7,22 @@ import AuthRoute from "./routes/AuthRoute";
 import { MENU_LIST } from "./utils/constants";
 import PrivateRoute from "./routes/PrivateRoute";
 import Timeline from "./pages/Timeline";
+import PostThread from "./pages/PostThread";
+import ViewAnswer from "./pages/ViewAnswer";
+import PostAnswer from "./pages/PostAnswer";
+import Completed from "./pages/Completed";
+import Category from "./pages/Category";
 
 const App = () => {
   return (
     <Router>
       <Navbar list={MENU_LIST} />
       <Switch>
-        {/* <Route path="/linimasa" component={Timeline} /> */}
+        <PrivateRoute path="/category" component={Category} />
+        <PrivateRoute path="/completed" component={Completed} />
+        <PrivateRoute path="/answer" component={ViewAnswer} />
+        <PrivateRoute path="/post-answer" component={PostAnswer} />
+        <PrivateRoute path="/post-thread" component={PostThread} />
         <PrivateRoute path="/linimasa" component={Timeline} />
         <AuthRoute path="/login" component={Login} />
         <AuthRoute path="/signup" component={SignUp} />

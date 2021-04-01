@@ -30,6 +30,7 @@ const Home = () => {
                   "linear-gradient(180deg, #7868E6 -30.77%, #B8B5FF 69.23%)",
                 boxShadow: "0px 40px 40px rgba(109, 193, 215, 0.8)",
               }}
+              additional='w-32'
             />
           </div>
         </div>

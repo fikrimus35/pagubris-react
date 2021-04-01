@@ -8,4 +8,4 @@ const Solved = () => {
     )
 }
 
-export default Solved
+export default Solved;
