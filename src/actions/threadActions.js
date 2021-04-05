@@ -9,7 +9,7 @@ import {
 } from "../constants/threadConstants";
 import { getToken } from "./userActions";
 import pagubris from "../api/pagubris";
-import axios from "axios";
+// import axios from "axios";
 
 export const postThread = (content) => async (dispatch) => {
   try {
@@ -22,7 +22,7 @@ export const postThread = (content) => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.post("/feeds", { content }, config);
+    const { data } = await pagubris.post("/feeds", { content }, config);
 
     dispatch({ type: POST_THREAD_SUCCESS, payload: data });
   } catch (e) {
@@ -41,7 +41,7 @@ export const listThreads = () => async (dispatch) => {
       },
     };
 
-    const { data } = await axios.get("/feeds", config);
+    const { data } = await pagubris.get("/feeds", config);
 
     dispatch({ type: LIST_THREAD_SUCCESS, payload: data });
   } catch (e) {

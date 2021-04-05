@@ -12,7 +12,7 @@ import {
   USER_INFO_RESET,
 } from "../constants/userConstants";
 import pagubris from "../api/pagubris";
-import axios from "axios";
+// import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
   try {
@@ -26,7 +26,7 @@ export const login = (email, password) => async (dispatch) => {
 
     const {
       data: { access_token, user },
-    } = await axios.post("/auth/login", { email, password }, config);
+    } = await pagubris.post("/auth/login", { email, password }, config);
 
     dispatch({ type: LOGIN_SUCCESS });
     setToken(access_token);
@@ -55,7 +55,7 @@ export const signup = (userData) => async (dispatch) => {
 
     const {
       data: { access_token, user },
-    } = await axios.post("/auth/register", userData, config);
+    } = await pagubris.post("/auth/register", userData, config);
 
     dispatch({ type: SIGN_UP_SUCCESS });
     dispatch({ type: LOGIN_SUCCESS });
@@ -79,7 +79,7 @@ export const getUserInfo = () => async (dispatch) => {
         "Content-Type": "application/json",
       },
     };
-    const { data } = await axios.get("/auth/me", config);
+    const { data } = await pagubris.get("/auth/me", config);
     dispatch({ type: USER_INFO_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: USER_INFO_FAIL, payload: error.response.data });
