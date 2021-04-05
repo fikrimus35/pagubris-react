@@ -20,14 +20,14 @@ const Login = () => {
 
   return (
     <Container center additional="h-screen">
-      <div className="w-128 rounded-2xl blur">
+      <div className="w-full md:w-128 rounded-2xl blur">
         <div className="flex justify-around px-12 py-4 text-xl border-b-4 border-white">
           <Link to="/signup">Buat</Link>
           <Link to="/login" className="font-extrabold">
             Masuk
           </Link>
         </div>
-        <form className="px-12 py-8" onSubmit={handleSubmit}>
+        <form className="px-4 md:px-12 py-8" onSubmit={handleSubmit}>
           <label htmlFor="username">Email</label>
           <TextField
             width="full"

@@ -16,7 +16,9 @@ import Category from "./pages/Category";
 const App = () => {
   return (
     <Router>
-      <Navbar list={MENU_LIST} />
+      <div className="">
+        <Navbar list={MENU_LIST} />
+      </div>
       <Switch>
         <PrivateRoute path="/kategori" component={Category} />
         <PrivateRoute path="/telah-selesai" component={Completed} />
@@ -27,7 +29,6 @@ const App = () => {
         <AuthRoute path="/login" component={Login} />
         <AuthRoute path="/signup" component={SignUp} />
         <Route path="/" exact component={Home} />
-        {/* <Route path="*" component={Home} /> */}
       </Switch>
     </Router>
   );

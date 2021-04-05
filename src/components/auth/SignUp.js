@@ -43,14 +43,14 @@ const SignUp = () => {
 
   return (
     <Container center additional="">
-      <div className="w-128 rounded-2xl blur mt-16 md:mt-0">
+      <div className="w-full md:w-128 rounded-2xl blur mt-16 md:mt-0">
         <div className="flex justify-around px-12 py-4 text-xl border-b-4 border-white">
           <Link to="/signup" className="font-extrabold">
             Buat
           </Link>
           <Link to="/login">Masuk</Link>
         </div>
-        <form className="px-12 py-8" onSubmit={handleSubmit}>
+        <form className="px-4 md:px-12 py-8" onSubmit={handleSubmit}>
           <label htmlFor="username">Nama Depan</label>
           <TextField
             width="full"
