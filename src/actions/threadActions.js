@@ -7,8 +7,9 @@ import {
   LIST_THREAD_FAIL,
   LIST_THREAD_RESET,
 } from "../constants/threadConstants";
-import axios from "axios";
 import { getToken } from "./userActions";
+import pagubris from "../api/pagubris";
+import axios from "axios";
 
 export const postThread = (content) => async (dispatch) => {
   try {
@@ -17,6 +18,7 @@ export const postThread = (content) => async (dispatch) => {
     const config = {
       headers: {
         Authorization: getToken(),
+        "Content-Type": "application/json",
       },
     };
 

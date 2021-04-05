@@ -10,17 +10,23 @@ import {
   USER_INFO_SUCCESS,
   USER_INFO_FAIL,
   USER_INFO_RESET,
-  
 } from "../constants/userConstants";
+import pagubris from "../api/pagubris";
 import axios from "axios";
 
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
 
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
     const {
       data: { access_token, user },
-    } = await axios.post("/auth/login", { email, password });
+    } = await axios.post("/auth/login", { email, password }, config);
 
     dispatch({ type: LOGIN_SUCCESS });
     setToken(access_token);
@@ -41,9 +47,15 @@ export const signup = (userData) => async (dispatch) => {
   try {
     dispatch({ type: SIGN_UP_REQUEST });
 
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+
     const {
       data: { access_token, user },
-    } = await axios.post("/auth/register", userData);
+    } = await axios.post("/auth/register", userData, config);
 
     dispatch({ type: SIGN_UP_SUCCESS });
     dispatch({ type: LOGIN_SUCCESS });
@@ -64,6 +76,7 @@ export const getUserInfo = () => async (dispatch) => {
     const config = {
       headers: {
         Authorization: getToken(),
+        "Content-Type": "application/json",
       },
     };
     const { data } = await axios.get("/auth/me", config);

@@ -42,8 +42,8 @@ const SignUp = () => {
   };
 
   return (
-    <Container center additional="bg-auth">
-      <div className="w-128 rounded-2xl blur">
+    <Container center additional="">
+      <div className="w-128 rounded-2xl blur mt-16 md:mt-0">
         <div className="flex justify-around px-12 py-4 text-xl border-b-4 border-white">
           <Link to="/signup" className="font-extrabold">
             Buat
