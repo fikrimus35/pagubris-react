@@ -4,17 +4,15 @@ import Sidebar from "./Sidebar";
 
 const PageWithSidebar = ({ background, children }) => {
   return (
-    <Container direction="row" padding="0% 7%" additional={background && "bg-auth"}>
+    <div className="relative">
       <Sidebar />
-      <div className="w-9/12 h-screen mt-24" style={{ marginLeft: "35%" }}>
-        {children}
-      </div>
-    </Container>
+      <div className="pt-24 ml-0 lg:ml-100 px-12">{children}</div>
+    </div>
   );
 };
 
 PageWithSidebar.defaultProps = {
-  background: true
-}
+  background: true,
+};
 
 export default PageWithSidebar;

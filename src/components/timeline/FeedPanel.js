@@ -1,9 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import TextField from "../form/TextField";
 import Feed from "./Feed";
-import marsyalina from "../../assets/pictures/marsyalina.svg"
+
+import { useDispatch, useSelector } from "react-redux";
+import { listThreads } from "../../actions/threadActions";
 
 const FeedPanel = () => {
+  const dispatch = useDispatch();
+  const { threads, loading } = useSelector((state) => state.listThreads);
+
+  useEffect(() => {
+    dispatch(listThreads());
+  }, [dispatch]);
+
   return (
     <>
       <div>
@@ -15,8 +24,17 @@ const FeedPanel = () => {
         />
       </div>
       <div className="blur">
-        <Feed image={marsyalina} />
-        <Feed image={marsyalina} />
+        {loading
+          ? "Loading ...."
+          : threads.map((thread) => {
+              return (
+                <Feed
+                  creator={thread.creator}
+                  content={thread.content}
+                  contentId={thread.id}
+                />
+              );
+            })}
       </div>
     </>
   );

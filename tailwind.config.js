@@ -11,7 +11,8 @@ module.exports = {
         'gray' : '#C4C4C4',
         'light-gray' : '#F1F1F1',
         'semi-gray': '#B8B5FF',
-        'light-blue':'#EDEEF7'
+        'light-blue':'#EDEEF7',
+        'red' : '#fc0303'
       },
       spacing:{
         '100': '25rem',

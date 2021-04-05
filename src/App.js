@@ -18,8 +18,8 @@ const App = () => {
     <Router>
       <Navbar list={MENU_LIST} />
       <Switch>
-        <PrivateRoute path="/category" component={Category} />
-        <PrivateRoute path="/completed" component={Completed} />
+        <PrivateRoute path="/kategori" component={Category} />
+        <PrivateRoute path="/telah-selesai" component={Completed} />
         <PrivateRoute path="/answer" component={ViewAnswer} />
         <PrivateRoute path="/post-answer" component={PostAnswer} />
         <PrivateRoute path="/post-thread" component={PostThread} />

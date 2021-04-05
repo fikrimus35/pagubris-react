@@ -3,6 +3,8 @@ import TextField from "../form/TextField";
 import { Link } from "react-router-dom";
 import Container from "../Container";
 import Button from "../Button";
+import { useDispatch, useSelector } from "react-redux";
+import { signup } from "../../actions/userActions";
 
 const SignUp = () => {
   const [username, setUsername] = useState("");
@@ -11,11 +13,32 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [gender, setGender] = useState("");
+  const [gender, setGender] = useState("MALE");
+  const dispatch = useDispatch();
+
+  const { error } = useSelector((state) => state.userSignUp);
+
+  const errors = [];
+
+  if (error) {
+    for (let i in error) {
+      errors.push(error[i][0]);
+    }
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email);
+    dispatch(
+      signup({
+        email,
+        username,
+        first_name: firstName,
+        last_name: lastName,
+        gender,
+        password,
+        password_confirmation: confirmPassword,
+      })
+    );
   };
 
   return (
@@ -36,6 +59,7 @@ const SignUp = () => {
             rounded="full"
             value={firstName}
             onChange={(e) => setFirstName(e.target.value)}
+            required
           />
           <label htmlFor="username">Nama Belakang</label>
           <TextField
@@ -45,6 +69,7 @@ const SignUp = () => {
             rounded="full"
             value={lastName}
             onChange={(e) => setLastName(e.target.value)}
+            required
           />
           <label htmlFor="username">Username</label>
           <TextField
@@ -54,6 +79,7 @@ const SignUp = () => {
             rounded="full"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            required
           />
           <label htmlFor="username">Email</label>
           <TextField
@@ -63,14 +89,25 @@ const SignUp = () => {
             rounded="full"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            required
           />
 
           <label htmlFor="username">Gender</label>
           <br />
-          <select onChange={(e) => setGender(e.target.value)} className='w-full outline-none rounded-full bg-gray px-4 py-2 text-sm my-4'>
-            <option value="MALE" className='bg-white'>Pria</option>
-            <option value="FEMALE" className='bg-white'>Wanita</option>
-            <option value="OTHERS" className='bg-white'>Lainnya</option>
+          <select
+            value={gender}
+            onChange={(e) => setGender(e.target.value)}
+            className="w-full outline-none rounded-full bg-gray px-4 py-2 text-sm my-4"
+          >
+            <option value="MALE" className="bg-white">
+              Pria
+            </option>
+            <option value="FEMALE" className="bg-white">
+              Wanita
+            </option>
+            <option value="OTHERS" className="bg-white">
+              Lainnya
+            </option>
           </select>
           <label htmlFor="username">Password</label>
           <TextField
@@ -80,6 +117,7 @@ const SignUp = () => {
             rounded="full"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            required
           />
           <label htmlFor="username">Konfirmasi Password</label>
           <TextField
@@ -89,7 +127,9 @@ const SignUp = () => {
             rounded="full"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
+            required
           />
+          {error && errors.map((err) => <p className="text-red">{err}</p>)}
           <div className="flex justify-center mt-8">
             <Button
               text="Buat Akun"

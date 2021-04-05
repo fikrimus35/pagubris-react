@@ -16,6 +16,10 @@ body {
   box-shadow: 0px 40px 40px rgba(109, 193, 215, 0.8);
 }
 
+#root{
+  max-width: 1600px;
+}
+
 .circle {
   background: linear-gradient(
     89.79deg,
@@ -62,4 +66,8 @@ textarea {
 ::-webkit-scrollbar-thumb {
   background: rgb(155, 153, 153);
   border-radius: 10px;
+}
+
+.nav{
+  height: calc(100vh - 4rem);
 }

@@ -1,28 +1,40 @@
-import React from "react";
-import marsyalina from "../assets/pictures/marsyalina.svg";
+import React, { useEffect, useState } from "react";
+import nopic from "../assets/pictures/nopic.jpeg";
 import premium from "../assets/pictures/premium.svg";
 import arrow from "../assets/pictures/arrow.svg";
 import user from "../assets/pictures/user.svg";
 import Button from "./Button";
 import CategoryList from "./category/CategoryList";
+import { useLocation, Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserInfo } from "../actions/userActions";
 
 const Sidebar = () => {
+  const { pathname } = useLocation();
+  const { userInfo, loading } = useSelector((state) => state.userInfo);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (userInfo && !userInfo.name) {
+      dispatch(getUserInfo());
+    }
+  }, [dispatch, userInfo]);
+
   return (
-    <div
-      className="fixed w-3/12 overflow-y-scroll top-0 bottom-0 bg-white"
-      style={{ paddingTop: "6%" }}
-    >
+    <div className="fixed w-100 mt-24 px-8 overflow-y-scroll top-0 bottom-0 bg-white hidden lg:block">
       <div className="bg-light-blue px-4 py-4 rounded-xl">
         <div className="flex flex-row items-center justify-around ">
-          <img src={marsyalina} />
-          <h3 className="text-xl font-bold">Lisa Sukmawati</h3>
+          <img src={nopic} className="w-28 h-28 rounded-full" />
+          <h3 className="text-xl font-bold ml-4">
+            {!loading ? userInfo.name : "Loading..."}
+          </h3>
         </div>
         <div className="flex flex-row">
-          <div className='w-6/12'>
+          <div className="w-6/12">
             <img src={premium} className="w-40 h-auto" />
           </div>
           <div className="flex justify-around text-sm text-center w-6/12 items-center">
-            <table className="" cellPadding = '8px'>
+            <table className="" cellPadding="8px">
               <tbody>
                 <tr>
                   <th>Total Bantu</th>
@@ -46,8 +58,15 @@ const Sidebar = () => {
         </div>
       </div>
       <div className="mt-4">
-        <h3 className="text-xl font-bold">Kategori</h3>
-        <CategoryList />
+        {pathname !== "/kategori" && (
+          <>
+            <h3 className="text-xl font-bold">Kategori</h3>
+            <CategoryList />
+            <div className="text-center hover:underline">
+              <Link to="/kategori">Lihat kategori lainnya ...</Link>
+            </div>
+          </>
+        )}
       </div>
       <div className="mt-4">
         <h3 className="text-xl font-bold">Orang Ahli</h3>

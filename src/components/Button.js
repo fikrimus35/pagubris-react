@@ -18,7 +18,7 @@ const Button = ({
   if (link) {
     return (
       <Link
-        className={`button bg-${bgColor} text-${color} rounded-full px-${px} py-${py} text-md flex flex-row items-center space-x-2  ${additional}`}
+        className={`button bg-${bgColor} text-${color} rounded-full px-${px} py-${py} text-md flex flex-row items-center space-x-2 my-2 ${additional}`}
         {...rest}
         to={link}
       >

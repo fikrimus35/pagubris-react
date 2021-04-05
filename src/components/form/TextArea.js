@@ -5,6 +5,7 @@ const TextArea = ({ rounded, bgColor, width, height, shadow, placeholder, ...res
     <textarea
       className={`w-${width} h-${height} bg-${bgColor} rounded-${rounded} shadow-${shadow} px-8 py-4`}
       placeholder={placeholder}
+      {...rest}
     ></textarea>
   );
 };
